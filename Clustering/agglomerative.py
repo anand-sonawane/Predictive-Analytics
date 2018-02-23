@@ -9,6 +9,7 @@ import threading
 
 dir_path = os.getcwd()
 feature_data = pd.read_csv("avs.csv")
+feature_data_label = pd.read_csv("labels.csv")
 feature_data = feature_data.drop(['Unnamed: 0'], axis=1)
 
 start_time = time.time()
@@ -21,8 +22,7 @@ def clustering(label,num_cluster):
         hclustering = AgglomerativeClustering(n_clusters = i)
         hclustering.fit(feature_data)
         label[i] = list(hclustering.labels_)
-    label['Category'] = actual_location
-    label['Frame_Name'] = img_name
+    label['Category'] = feature_data_label['original']
     df = pd.DataFrame(label)
     df.to_csv(dir_path+'/CLUSTERS_Agglomerative.csv')
 
