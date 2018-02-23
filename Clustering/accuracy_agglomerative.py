@@ -14,10 +14,10 @@ for cluster_number in range(2,8):
     df1 = df[[str(cluster_number), 'Category']]
     count = 0
     for i in range(cluster_number):
-        df2 = df1.loc[df1[str(cluster_number)] == i]
-        items_counts = df2['Category'].value_counts()
-        max_item = items_counts[0]   ## highest value from a particular cluster
-        count += max_item
+	df2 = df1.loc[df1[str(cluster_number)] == i]
+	items_counts = df2['Category'].value_counts()
+	max_item = items_counts[0]   ## highest value from a particular cluster
+	count += max_item
     accuracy = float(count*100)/len
     acc[cluster_number] = accuracy
 print(acc)

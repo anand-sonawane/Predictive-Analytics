@@ -8,8 +8,8 @@ from sklearn.cluster import AgglomerativeClustering
 import threading
 
 dir_path = os.getcwd()
-feature_data = pd.read_csv("avs.csv")
-feature_data_label = pd.read_csv("labels.csv")
+feature_data = pd.read_csv("avs1.csv")
+feature_data_label = pd.read_csv("labels1.csv")
 feature_data = feature_data.drop(['Unnamed: 0'], axis=1)
 
 start_time = time.time()
