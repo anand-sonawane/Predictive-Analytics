@@ -27,7 +27,7 @@ def clustering(label,num_cluster):
     df.to_csv(dir_path+'/CLUSTERS_Agglomerative.csv')
 
 threads = []
-for i in range(2,61):
+for i in range(2,10):
     thread = threading.Thread(target=clustering,args=(label,i))
     threads.append(thread)
 

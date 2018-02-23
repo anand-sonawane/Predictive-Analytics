@@ -10,7 +10,7 @@ len = df.shape[0]   # total number of rows in dataframe
 
 df_exp=pd.DataFrame()
 acc = {}
-for cluster_number in range(2,60):
+for cluster_number in range(2,8):
     df1 = df[[str(cluster_number), 'Category']]
     count = 0
     for i in range(cluster_number):
@@ -20,6 +20,7 @@ for cluster_number in range(2,60):
         count += max_item
     accuracy = float(count*100)/len
     acc[cluster_number] = accuracy
+print(acc)
 df_acc = pd.DataFrame(acc.items(), columns=['num_of_cluster', 'Accuracy'], index = None)
 df_acc.to_csv(dir_path+'/ACCURACY_agglomerative.csv')
 
